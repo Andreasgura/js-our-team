@@ -56,26 +56,21 @@ let teamMembers = [
 ]
 
 console.log(teamMembers)
-let prvaEl = document.getElementById('prova')
+let containerEl = document.getElementById('container')
+let card = document.createElement('div')
+card.classList.add('row', 'gap-5','justify-content-between' )
 for (value of teamMembers){
     console.log(value['name']);
-    let card = document.createElement('ul')
-    card.innerHTML += `
-    <li>${value['name']}</li>
-    <li>${value['jobPosition']}</li>
-    <li><img src="img/${value['img']}"></li>
-    `
-    prvaEl.appendChild(card)
-}
-// for ( let key in studente) {
-//     console.log(studente[key]);
-// }
-
-// let n = 3;
-// let arraystudenti = [];
-
-//  for (let index = 0; index < array.length; index++) {
-//     const element = array[index];
     
-//  }
-// // let newstudent= newstudent 
+    card.innerHTML += `
+    <div class="card col-3 text-center ">
+        <img src="img/${value['img']}" class="card-img-top" alt="${value['img']}">
+        <div class="card-body">
+            <h4 class="card-title">${value['name']}</h4>
+            <h5 class="card-title">${value['jobPosition']}</h5>
+        </div>
+    </div>
+    `
+    containerEl.appendChild(card)
+}
+
